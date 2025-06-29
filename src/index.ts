@@ -62,7 +62,7 @@ app.post('/api/parse', async (c) => {
 			return c.json({ error: 'Failed to fetch video data' }, 500)
 		}
 		const html = await response.text()
-		const routerDataMatch = html.match(/_ROUTER_DATA\s*=\s*(\{.*?\});/)
+		const routerDataMatch = html.match(/_ROUTER_DATA\s*=\s*(\{.*?\})</)
 		if (!routerDataMatch) {
 			return c.json({ error: 'Failed to extract router data' }, 500)
 		}
